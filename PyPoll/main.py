@@ -39,10 +39,10 @@ with open(election_csv) as elections:
 candidates_name = ["Charles Casper Stockham", "Diana DeGette", "Raymon Anthony Doane"]
 votes_list = [charles_votes, diana_votes,raymon_votes]
 
-# We zip them together the list of candidate(key) and the total votes(value)
+# Zip the list of candidate(key) and the total votes(value)
 # Return the winner using a max function of the dictionary 
 dict_candidates_and_votes = dict(zip(candidates_name,votes_list))
-key = max(dict_candidates_and_votes, key=dict_candidates_and_votes.get)
+winner = max(dict_candidates_and_votes, key=dict_candidates_and_votes.get)
 
 # A summary for each candidate
 charles_percent = (charles_votes/total_votes) *100
@@ -61,7 +61,7 @@ print(f"Charles Casper Stockham: {charles_percent:.3f}% ({charles_votes})")
 print(f"Diana DeGette: {diana_percent:.3f}% ({diana_votes})")
 print(f"Raymon Anthony Doane: {raymon_percent:.3f}% ({raymon_votes})")
 print(f"----------------------------")
-print(f"Winner: {key}")
+print(f"Winner: {winner}")
 print(f"----------------------------")
 print("\n")
 # Output files
@@ -87,6 +87,6 @@ with open(output_file,"w") as file:
     file.write("\n")
     file.write(f"----------------------------")
     file.write("\n")
-    file.write(f"Winner: {key}")
+    file.write(f"Winner: {winner}")
     file.write("\n")
     file.write(f"----------------------------")
