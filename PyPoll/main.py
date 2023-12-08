@@ -35,14 +35,14 @@ with open(election_csv) as elections:
         elif row[2] == "Raymon Anthony Doane": 
             raymon_votes +=1
 
- #Create a dictionary out of the lists previously created 
+#Create a dictionary out of the lists previously created 
 candidates_name = ["Charles Casper Stockham", "Diana DeGette", "Raymon Anthony Doane"]
 votes_list = [charles_votes, diana_votes,raymon_votes]
 
-# Zip the list of candidate(key) and the total votes(value)
-# Return the winner using a max function of the dictionary 
-dict_candidates_and_votes = dict(zip(candidates_name,votes_list))
-winner = max(dict_candidates_and_votes, key=dict_candidates_and_votes.get)
+# Zip the list of candidate and votes
+list_candidates_votes = dict(zip(candidates_name,votes_list))
+# Find the winner 
+winner = max(list_candidates_votes, key=lambda k:list_candidates_votes[k])
 
 # A summary for each candidate
 charles_percent = (charles_votes/total_votes) *100
